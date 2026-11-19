@@ -1,0 +1,405 @@
+# Personal targeting configuration; see modes/_profile.md and modes/_custom.md.
+# Remote and missing locations require a separate Washington eligibility review.
+title_filter:
+  positive:
+  - Data Analyst
+  - Data Analytics
+  - Analytics Engineer
+  - Business Intelligence
+  - BI Analyst
+  - BI Developer
+  - Reporting Analyst
+  - Data Quality
+  - Data Governance
+  - Data Management
+  - Operations Analyst
+  - Operational Analyst
+  - Research Analyst
+  - Research and Data
+  - Institutional Research
+  - Performance Analyst
+  - Data and Performance
+  - Data & Performance
+  - Program Analyst
+  - Program Evaluation
+  - Decision Support
+  - Business Systems Analyst
+  - Product Analyst
+  - Statistical
+  negative:
+  - word:Intern
+  - word:Interns
+  - Internship
+  - Director
+  - Vice President
+  - word:VP
+  - Head of
+  seniority_boost:
+  - Senior
+  - Sr.
+location_filter:
+  allow:
+  - Seattle
+  - Bellevue
+  - Kirkland
+  - Redmond
+  - Bothell
+  - Issaquah
+  - Remote
+visa_filter:
+  enabled: false
+search_queries:
+- name: Local DA and AE
+  query: ("data analyst" OR "analytics engineer" OR "business intelligence") ("Seattle" OR "Bellevue"
+    OR "Kirkland" OR "Redmond") -site:linkedin.com
+  enabled: true
+- name: Local operations and quality
+  query: ("operations analyst" OR "data quality" OR "reporting analyst" OR "data governance") ("Seattle"
+    OR "Bellevue" OR "Kirkland" OR "Bothell" OR "Issaquah") -site:linkedin.com
+  enabled: true
+- name: Government data and performance
+  query: site:governmentjobs.com/careers ("Seattle" OR "Bellevue" OR "Kirkland" OR "Redmond" OR "King
+    County") ("data" OR "performance" OR "research" OR "evaluation")
+  enabled: true
+- name: WA state agencies
+  query: site:governmentjobs.com/careers/washington ("data analyst" OR "research" OR "business intelligence"
+    OR "statistical")
+  enabled: true
+- name: Higher education
+  query: ("institutional research" OR "reporting analyst" OR "data analyst") ("University of Washington"
+    OR "Bellevue College" OR "Lake Washington Institute of Technology" OR "Seattle Colleges")
+  enabled: true
+- name: Healthcare analytics
+  query: ("EvergreenHealth" OR "Overlake" OR "UW Medicine" OR "Seattle Children" OR "Fred Hutch" OR "Providence")
+    ("data analyst" OR "business intelligence" OR "decision support") careers
+  enabled: true
+- name: Insurance analytics
+  query: ("Premera" OR "Regence" OR "Cambia" OR "Symetra" OR "PEMCO") ("data analyst" OR "analytics" OR
+    "business intelligence") careers
+  enabled: true
+- name: Utilities and transit
+  query: ("Puget Sound Energy" OR "Seattle City Light" OR "Seattle Public Utilities" OR "Sound Transit"
+    OR "Port of Seattle") ("analyst" OR "analytics" OR "data") careers
+  enabled: true
+- name: Remote Greenhouse
+  query: (site:job-boards.greenhouse.io OR site:boards.greenhouse.io) ("data analyst" OR "analytics engineer"
+    OR "business intelligence") "remote" ("United States" OR "Washington")
+  enabled: true
+- name: Remote Workday
+  query: site:myworkdayjobs.com ("data analyst" OR "analytics engineer" OR "business intelligence") "remote"
+    ("United States" OR "Washington")
+  enabled: true
+- name: Remote Lever and Ashby
+  query: (site:jobs.lever.co OR site:jobs.ashbyhq.com) ("data analyst" OR "analytics engineer" OR "BI
+    analyst") "remote" ("United States" OR "Washington")
+  enabled: true
+tracked_companies:
+- name: City of Seattle
+  careers_url: https://www.governmentjobs.com/careers/seattle
+  scan_method: websearch
+  scan_query: '"City of Seattle" ("data analyst" OR "analytics" OR "business intelligence" OR "research
+    analyst" OR "performance analyst") careers -site:linkedin.com'
+  enabled: true
+  notes: P1 Government; includes Municipal Court, City Light and Public Utilities. Agent search/direct-page
+    handoff; not an automatic API feed.
+- name: King County
+  careers_url: https://www.governmentjobs.com/careers/kingcounty
+  scan_method: websearch
+  scan_query: '"King County" ("data analyst" OR "analytics" OR "business intelligence" OR "research analyst"
+    OR "performance analyst") careers -site:linkedin.com'
+  enabled: true
+  notes: P1 Government. Agent search/direct-page handoff; not an automatic API feed.
+- name: City of Bellevue
+  careers_url: https://www.governmentjobs.com/careers/bellevuewa
+  scan_method: websearch
+  scan_query: '"City of Bellevue" ("data analyst" OR "analytics" OR "business intelligence" OR "research
+    analyst" OR "performance analyst") careers -site:linkedin.com'
+  enabled: true
+  notes: P1 Government. Agent search/direct-page handoff; not an automatic API feed.
+- name: City of Kirkland
+  careers_url: https://www.governmentjobs.com/careers/kirklandwa
+  scan_method: websearch
+  scan_query: '"City of Kirkland" ("data analyst" OR "analytics" OR "business intelligence" OR "research
+    analyst" OR "performance analyst") careers -site:linkedin.com'
+  enabled: true
+  notes: P1 Government. Agent search/direct-page handoff; not an automatic API feed.
+- name: City of Redmond
+  careers_url: https://www.governmentjobs.com/careers/redmondwa
+  scan_method: websearch
+  scan_query: '"City of Redmond" ("data analyst" OR "analytics" OR "business intelligence" OR "research
+    analyst" OR "performance analyst") careers -site:linkedin.com'
+  enabled: true
+  notes: P1 Government. Agent search/direct-page handoff; not an automatic API feed.
+- name: State of Washington
+  careers_url: https://www.governmentjobs.com/careers/washington
+  scan_method: websearch
+  scan_query: '"State of Washington" ("data analyst" OR "analytics" OR "business intelligence" OR "research
+    analyst" OR "performance analyst") careers -site:linkedin.com'
+  enabled: true
+  notes: P1 Government; include WSDOT, OIC and WSIB where published. Olympia/Tumwater onsite or hybrid
+    requires separate commute review. Agent search/direct-page handoff; not an automatic API feed.
+- name: EvergreenHealth
+  careers_url: https://careers.evergreenhealth.com/
+  enabled: true
+  notes: P1 Healthcare. ATS endpoint identified 2026-11-19; live full-feed scan not yet validated. If
+    provider fails, hand off to agent search.
+  provider: jobvite
+  api: https://jobs.jobvite.com/evergreenhealth/
+- name: Overlake Medical Center
+  careers_url: https://www.overlakecareers.org/
+  scan_method: websearch
+  scan_query: '"Overlake Medical Center" ("data analyst" OR "analytics" OR "business intelligence" OR
+    "research analyst" OR "performance analyst") careers -site:linkedin.com'
+  enabled: true
+  notes: P1 Healthcare. Agent search/direct-page handoff; not an automatic API feed.
+- name: UW Medicine
+  careers_url: https://www.uwmedicine.org/jobs
+  scan_method: websearch
+  scan_query: '"UW Medicine" ("data analyst" OR "analytics" OR "business intelligence" OR "research analyst"
+    OR "performance analyst") careers -site:linkedin.com'
+  enabled: true
+  notes: P1 Healthcare; deduplicate requisitions shared with UW. Agent search/direct-page handoff; not
+    an automatic API feed.
+- name: Seattle Children's
+  careers_url: https://www.seattlechildrens.org/careers/
+  scan_method: websearch
+  scan_query: '"Seattle Children''s" ("data analyst" OR "analytics" OR "business intelligence" OR "research
+    analyst" OR "performance analyst") careers -site:linkedin.com'
+  enabled: true
+  notes: P1 Healthcare. Agent search/direct-page handoff; not an automatic API feed.
+- name: Fred Hutch
+  careers_url: https://www.fredhutch.org/en/about/careers.html
+  scan_method: websearch
+  scan_query: '"Fred Hutch" ("data analyst" OR "analytics" OR "business intelligence" OR "research analyst"
+    OR "performance analyst") careers -site:linkedin.com'
+  enabled: true
+  notes: P1 Healthcare. Agent search/direct-page handoff; not an automatic API feed.
+- name: Providence / Swedish
+  careers_url: https://providence.jobs/
+  scan_method: websearch
+  scan_query: '"Providence" ("data analyst" OR "analytics" OR "business intelligence" OR "research analyst"
+    OR "performance analyst") careers -site:linkedin.com'
+  enabled: true
+  notes: P1 Healthcare; inspect WA eligibility for remote roles. Agent search/direct-page handoff; not
+    an automatic API feed.
+- name: University of Washington
+  careers_url: https://www.washington.edu/jobs/
+  scan_method: websearch
+  scan_query: '"University of Washington" ("data analyst" OR "analytics" OR "business intelligence" OR
+    "research analyst" OR "performance analyst") careers -site:linkedin.com'
+  enabled: true
+  notes: P1 Education; employee jobs, not student career services. Agent search/direct-page handoff; not
+    an automatic API feed.
+- name: Bellevue College
+  careers_url: https://www.bellevuecollege.edu/work-at-bellevue/
+  scan_method: websearch
+  scan_query: '"Bellevue College" ("data analyst" OR "analytics" OR "business intelligence" OR "research
+    analyst" OR "performance analyst") careers -site:linkedin.com'
+  enabled: true
+  notes: P1 Education. Agent search/direct-page handoff; not an automatic API feed.
+- name: Lake Washington Institute of Technology
+  careers_url: https://www.lwtech.edu/employees/human-resources/jobs.aspx
+  scan_method: websearch
+  scan_query: '"Lake Washington Institute of Technology" ("data analyst" OR "analytics" OR "business intelligence"
+    OR "research analyst" OR "performance analyst") careers -site:linkedin.com'
+  enabled: true
+  notes: P1 Education. Agent search/direct-page handoff; not an automatic API feed.
+- name: Seattle Colleges
+  careers_url: https://www.seattlecolleges.edu/careers-seattle-colleges
+  scan_method: websearch
+  scan_query: '"Seattle Colleges" ("data analyst" OR "analytics" OR "business intelligence" OR "research
+    analyst" OR "performance analyst") careers -site:linkedin.com'
+  enabled: true
+  notes: P1 Education. Agent search/direct-page handoff; not an automatic API feed.
+- name: Premera Blue Cross
+  careers_url: https://www.premera.com/visitor/careers
+  enabled: true
+  notes: P1 Insurance; Mountlake Terrace onsite is a commute-review item, not automatically local. ATS
+    endpoint identified 2026-11-19; live full-feed scan not yet validated. If provider fails, hand off
+    to agent search.
+  provider: workday
+  api: https://premera.wd5.myworkdayjobs.com/premera
+- name: Cambia / Regence
+  careers_url: https://www.cambiahealth.com/careers/careers-at-cambia/
+  enabled: true
+  notes: P1 Insurance. ATS endpoint identified 2026-11-19; live full-feed scan not yet validated. If provider
+    fails, hand off to agent search.
+  provider: workday
+  api: https://cambiahealth.wd504.myworkdayjobs.com/External
+- name: Symetra
+  careers_url: https://symetra.eightfold.ai/careers
+  enabled: true
+  notes: P1 Insurance. ATS endpoint identified 2026-11-19; live full-feed scan not yet validated. If provider
+    fails, hand off to agent search.
+  provider: eightfold
+  api: https://symetra.eightfold.ai/careers
+  domain: symetra.com
+- name: PEMCO
+  careers_url: https://pemco.com/careers
+  scan_method: websearch
+  scan_query: '"PEMCO" ("data analyst" OR "analytics" OR "business intelligence" OR "research analyst"
+    OR "performance analyst") careers -site:linkedin.com'
+  enabled: true
+  notes: P1 Insurance. Agent search/direct-page handoff; not an automatic API feed.
+- name: Puget Sound Energy
+  careers_url: https://jobs.pse.com/
+  scan_method: websearch
+  scan_query: '"Puget Sound Energy" ("data analyst" OR "analytics" OR "business intelligence" OR "research
+    analyst" OR "performance analyst") careers -site:linkedin.com'
+  enabled: true
+  notes: P1 Utilities. Agent search/direct-page handoff; not an automatic API feed.
+- name: Sound Transit
+  careers_url: https://www.soundtransit.org/get-to-know-us/jobs
+  scan_method: websearch
+  scan_query: '"Sound Transit" ("data analyst" OR "analytics" OR "business intelligence" OR "research
+    analyst" OR "performance analyst") careers -site:linkedin.com'
+  enabled: true
+  notes: P1 Transit. Agent search/direct-page handoff; not an automatic API feed.
+- name: Port of Seattle
+  careers_url: https://www.portseattle.org/careers
+  scan_method: websearch
+  scan_query: '"Port of Seattle" ("data analyst" OR "analytics" OR "business intelligence" OR "research
+    analyst" OR "performance analyst") careers -site:linkedin.com'
+  enabled: true
+  notes: P1 Transit. Agent search/direct-page handoff; not an automatic API feed.
+- name: Costco
+  careers_url: https://www.costco.com/f/-/careers
+  scan_method: websearch
+  scan_query: '"Costco" ("data analyst" OR "analytics" OR "business intelligence" OR "research analyst"
+    OR "performance analyst") careers -site:linkedin.com'
+  enabled: true
+  notes: P2 Established enterprise. Agent search/direct-page handoff; not an automatic API feed.
+- name: PACCAR
+  careers_url: https://jobs.paccar.com/
+  scan_method: websearch
+  scan_query: '"PACCAR" ("data analyst" OR "analytics" OR "business intelligence" OR "research analyst"
+    OR "performance analyst") careers -site:linkedin.com'
+  enabled: true
+  notes: P2 Established enterprise. Agent search/direct-page handoff; not an automatic API feed.
+- name: Expeditors
+  careers_url: https://www.expeditors.com/careers
+  scan_method: websearch
+  scan_query: '"Expeditors" ("data analyst" OR "analytics" OR "business intelligence" OR "research analyst"
+    OR "performance analyst") careers -site:linkedin.com'
+  enabled: true
+  notes: P2 Established enterprise. Agent search/direct-page handoff; not an automatic API feed.
+- name: Alaska Airlines
+  careers_url: https://careers.alaskaair.com/
+  scan_method: websearch
+  scan_query: '"Alaska Airlines" ("data analyst" OR "analytics" OR "business intelligence" OR "research
+    analyst" OR "performance analyst") careers -site:linkedin.com'
+  enabled: true
+  notes: P2 Established enterprise; SeaTac onsite requires commute review. Agent search/direct-page handoff;
+    not an automatic API feed.
+- name: Nordstrom
+  careers_url: https://careers.nordstrom.com/
+  scan_method: websearch
+  scan_query: '"Nordstrom" ("data analyst" OR "analytics" OR "business intelligence" OR "research analyst"
+    OR "performance analyst") careers -site:linkedin.com'
+  enabled: true
+  notes: P2 Established enterprise. Agent search/direct-page handoff; not an automatic API feed.
+- name: REI
+  careers_url: https://www.rei.jobs/careers-home
+  scan_method: websearch
+  scan_query: '"REI" ("data analyst" OR "analytics" OR "business intelligence" OR "research analyst" OR
+    "performance analyst") careers -site:linkedin.com'
+  enabled: true
+  notes: P2 Established enterprise. Agent search/direct-page handoff; not an automatic API feed.
+- name: Weyerhaeuser
+  careers_url: https://www.weyerhaeuser.com/careers/
+  scan_method: websearch
+  scan_query: '"Weyerhaeuser" ("data analyst" OR "analytics" OR "business intelligence" OR "research analyst"
+    OR "performance analyst") careers -site:linkedin.com'
+  enabled: true
+  notes: P2 Established enterprise. Agent search/direct-page handoff; not an automatic API feed.
+- name: Saltchuk
+  careers_url: https://www.saltchuk.com/careers/
+  scan_method: websearch
+  scan_query: '"Saltchuk" ("data analyst" OR "analytics" OR "business intelligence" OR "research analyst"
+    OR "performance analyst") careers -site:linkedin.com'
+  enabled: true
+  notes: P2 Established enterprise; follow links to operating companies including Saltchuk Marine. Agent
+    search/direct-page handoff; not an automatic API feed.
+- name: T-Mobile
+  careers_url: https://careers.t-mobile.com/
+  scan_method: websearch
+  scan_query: '"T-Mobile" ("data analyst" OR "analytics" OR "business intelligence" OR "research analyst"
+    OR "performance analyst") careers -site:linkedin.com'
+  enabled: true
+  notes: P2 Technology / telecom. Agent search/direct-page handoff; not an automatic API feed.
+- name: Expedia Group
+  careers_url: https://careers.expediagroup.com/
+  scan_method: websearch
+  scan_query: '"Expedia Group" ("data analyst" OR "analytics" OR "business intelligence" OR "research
+    analyst" OR "performance analyst") careers -site:linkedin.com'
+  enabled: true
+  notes: P2 Technology. Agent search/direct-page handoff; not an automatic API feed.
+- name: Microsoft
+  careers_url: https://careers.microsoft.com/
+  scan_method: websearch
+  scan_query: '"Microsoft" ("data analyst" OR "analytics" OR "business intelligence" OR "research analyst"
+    OR "performance analyst") careers -site:linkedin.com'
+  enabled: true
+  notes: P2 Technology. Agent search/direct-page handoff; not an automatic API feed.
+- name: Nintendo of America
+  careers_url: https://careers.nintendo.com/
+  scan_method: websearch
+  scan_query: '"Nintendo of America" ("data analyst" OR "analytics" OR "business intelligence" OR "research
+    analyst" OR "performance analyst") careers -site:linkedin.com'
+  enabled: true
+  notes: P2 Technology. Agent search/direct-page handoff; not an automatic API feed.
+- name: Smartsheet
+  careers_url: https://www.smartsheet.com/careers
+  scan_method: websearch
+  scan_query: '"Smartsheet" ("data analyst" OR "analytics" OR "business intelligence" OR "research analyst"
+    OR "performance analyst") careers -site:linkedin.com'
+  enabled: true
+  notes: P2 Technology. Agent search/direct-page handoff; not an automatic API feed.
+- name: F5
+  careers_url: https://www.f5.com/company/careers
+  scan_method: websearch
+  scan_query: '"F5" ("data analyst" OR "analytics" OR "business intelligence" OR "research analyst" OR
+    "performance analyst") careers -site:linkedin.com'
+  enabled: true
+  notes: P2 Technology. Agent search/direct-page handoff; not an automatic API feed.
+- name: YipitData
+  careers_url: https://www.yipitdata.com/careers
+  scan_method: websearch
+  scan_query: '"YipitData" ("data analyst" OR "analytics" OR "business intelligence" OR "research analyst"
+    OR "performance analyst") careers -site:linkedin.com'
+  enabled: true
+  notes: Remote pool; WA eligibility must be checked per role. Agent search/direct-page handoff; not an
+    automatic API feed.
+- name: Natera
+  careers_url: https://www.natera.com/company/careers/
+  enabled: true
+  notes: Remote pool; WA eligibility and weekend/shift schedule must be checked per role. ATS endpoint
+    identified 2026-11-19; live full-feed scan not yet validated. If provider fails, hand off to agent
+    search.
+  provider: greenhouse
+  api: https://boards-api.greenhouse.io/v1/boards/natera/jobs
+- name: UnitedHealth Group / Optum
+  careers_url: https://careers.unitedhealthgroup.com/
+  scan_method: websearch
+  scan_query: '"UnitedHealth Group" ("data analyst" OR "analytics" OR "business intelligence" OR "research
+    analyst" OR "performance analyst") careers -site:linkedin.com'
+  enabled: true
+  notes: Remote pool; WA eligibility must be checked per role. Agent search/direct-page handoff; not an
+    automatic API feed.
+- name: CVS Health / Aetna
+  careers_url: https://jobs.cvshealth.com/
+  scan_method: websearch
+  scan_query: '"CVS Health" ("data analyst" OR "analytics" OR "business intelligence" OR "research analyst"
+    OR "performance analyst") careers -site:linkedin.com'
+  enabled: true
+  notes: Remote pool; WA eligibility must be checked per role. Agent search/direct-page handoff; not an
+    automatic API feed.
+- name: Humana
+  careers_url: https://careers.humana.com/
+  scan_method: websearch
+  scan_query: '"Humana" ("data analyst" OR "analytics" OR "business intelligence" OR "research analyst"
+    OR "performance analyst") careers -site:linkedin.com'
+  enabled: true
+  notes: Remote pool; WA eligibility must be checked per role. Agent search/direct-page handoff; not an
+    automatic API feed.
+job_boards: []

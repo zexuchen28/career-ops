@@ -1,0 +1,33 @@
+# Targeting profile only; contact details, CV facts and salary floor are intentionally unset.
+candidate:
+  full_name: Zoe Chen
+  location: Kirkland, WA
+target_roles:
+  primary:
+  - Senior Data Analyst
+  - Analytics Engineer
+  - BI Analyst
+  archetypes:
+  - name: Data Analysis / Data Quality
+    level: Mid-Senior
+    fit: primary
+  - name: Analytics Engineering
+    level: Mid-Senior
+    fit: primary
+  - name: Business Intelligence / Operations Analytics
+    level: Mid-Senior
+    fit: primary
+  - name: Institutional Research / Program Evaluation
+    level: Mid-Senior
+    fit: secondary
+location:
+  country: United States
+  city: Kirkland
+  timezone: America/Los_Angeles
+  visa_status: No sponsorship needed
+  authorized_in:
+  - United States
+  needs_sponsorship: false
+language:
+  output: en
+spend_tier: standard
